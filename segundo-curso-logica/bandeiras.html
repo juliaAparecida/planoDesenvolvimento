@@ -1,0 +1,52 @@
+<canvas id="flagCanvas" width="600" height="400"></canvas>
+
+<script>
+var canvas = document.getElementById("flagCanvas");
+var context = canvas.getContext("2d");
+
+function desenhaBandeiraBrasil() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    context.fillStyle = "green";
+    context.fillRect(0, 0, 600, 400);
+
+    context.fillStyle = "yellow";
+    context.beginPath();
+    context.moveTo(300, 50);
+    context.lineTo(50, 200);
+    context.lineTo(550, 200);
+    context.fill();
+
+    context.beginPath();
+    context.moveTo(50, 200);
+    context.lineTo(300, 350);
+    context.lineTo(550, 200);
+    context.fill();
+
+    context.fillStyle = "darkblue";
+    context.beginPath();
+    context.arc(300, 200, 100, 0, 2 * Math.PI);
+    context.fill();
+}
+
+function desenhaBandeiraAlemanha() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    context.fillStyle = "black";
+    context.fillRect(0, 0, 600, 133);
+
+    context.fillStyle = "red";
+    context.fillRect(0, 133, 600, 133);
+
+    context.fillStyle = "yellow";
+    context.fillRect(0, 266, 600, 133);
+}
+
+function alternarBandeiras() {
+    desenhaBandeiraBrasil();
+    setTimeout(desenhaBandeiraAlemanha, 3000);
+    setTimeout(alternarBandeiras, 6000); // Chama alternarBandeiras novamente após 6 segundos (3s para cada bandeira)
+}
+
+alternarBandeiras(); // Inicia o ciclo de alternância das bandeiras
+</script>
