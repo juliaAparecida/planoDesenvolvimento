@@ -1,0 +1,9 @@
+.buttonContainer {
+    width: 75%;
+}
+
+.button {
+    width: 30%;
+    height: 50px;
+    font-size: 2rem;
+}
